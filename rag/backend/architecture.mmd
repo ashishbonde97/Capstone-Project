@@ -1,0 +1,34 @@
+graph TD
+%% Define Node Styles
+classDef user fill:#0ea5e9,stroke:#0284c7,stroke-width:2px,color:#fff;
+classDef process fill:#8b5cf6,stroke:#6d28d9,stroke-width:2px,color:#fff;
+classDef decision fill:#f59e0b,stroke:#d97706,stroke-width:2px,color:#fff;
+classDef database fill:#10b981,stroke:#059669,stroke-width:2px,color:#fff;
+
+%% Nodes
+A((User Query)):::user
+B[Retrieve Node<br/>Fetch from FAISS]:::process
+C{Grade Node<br/>Relevant?}:::decision
+D[Transform Query Node<br/>Rewrite for Web]:::process
+E[Web Search Node<br/>DuckDuckGo]:::process
+F[Generate Node<br/>Synthesize Answer]:::process
+G((Final Response)):::user
+DB[(Local FAISS DB)]:::database
+WEB[(World Wide Web)]:::database
+
+%% Edges
+A --> B
+B -.-> DB
+B --> C
+
+%% Conditional Logic
+C -- "Yes (Relevant Context Found)" --> F
+C -- "No (Irrelevant Context)" --> D
+
+%% Web Fallback Logic
+D --> E
+E -.-> WEB
+E --> F
+
+%% Output
+F --> G

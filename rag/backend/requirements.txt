@@ -1,0 +1,14 @@
+numpy
+pandas
+langchain>=0.1.0
+langchain-core
+langchain-community
+langchain-groq
+langchain-huggingface
+langgraph
+faiss-cpu
+pypdf
+python-dotenv
+duckduckgo-search
+sentence-transformers
+streamlit
