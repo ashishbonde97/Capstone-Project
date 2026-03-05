@@ -10,7 +10,7 @@ LangGraph: For orchestrating the agentic workflow and defining the state machine
 
 LangChain: For LLM wrapping, prompting, and chaining operations.
 
-Groq (Llama-3.1-8b-instant): Lightning-fast LLM inference powering the Grader, Query Transformer, and Answer Generation nodes.
+Groq (openai/gpt-oss-120b): Lightning-fast LLM inference powering the Grader, Query Transformer, and Answer Generation nodes.
 
 FAISS: Local, lightweight vector database for fast similarity search of PDF embeddings.
 
@@ -60,7 +60,7 @@ GROQ_API_KEY=your_groq_api_key_here
 
 Create a folder named documents in the root directory and place your PDF files inside it. Then, build the local vector database:
 
-python vector_db/ingest.py
+python vector_db/build_vector_db.py
 
 
 (This will create a vector_db/faiss_index folder containing your embeddings).
